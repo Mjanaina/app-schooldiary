@@ -1,17 +1,26 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button color="light">
+        <ion-icon slot="icon-only" name="calendar"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>
-      Tab 2
+      {{ currentMonth }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+ <calendar id="myCalendar"
+  locale="pt-BR"
+  calendarMode="month" 
+  startHour="6"
+  endHour="20"
+  step="30"
+  startingDayWeek="1"
+  [currentDate]="currentDate"
+  (onTitleChanged)="onViewTitleChanged($event)">
+</calendar>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
 </ion-content>
